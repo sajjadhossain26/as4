@@ -128,8 +128,10 @@ function updateTabCount() {
 
 function emptyState(message) {
   return `
-    <div class="text-center py-16">
-      <div class="text-4xl mb-3">📄</div>
+    <div class="text-center py-16 text-center">
+      <div class="text-4xl mb-3 text-center m-auto">
+       <img class="w-[80px] m-auto" src="./img/uploadimg.png" alt="">
+      </div>
       <h3 class="font-semibold text-lg">${message}</h3>
       <p class="text-sm text-gray-500">Check back soon for new job opportunities</p>
     </div>
@@ -137,19 +139,33 @@ function emptyState(message) {
 }
 
 function createCard(job) {
+  const statusText =
+    job.status === "INTERVIEW"
+      ? "Interview"
+      : job.status === "REJECTED"
+        ? "Rejected"
+        : "Not Applied";
+
+  const statusClass =
+    job.status === "INTERVIEW"
+      ? "btn-success"
+      : job.status === "REJECTED"
+        ? "btn-error"
+        : "btn-outline";
   return `
-    <div class="card bg-base-100 border mb-4">
+    <div class="card bg-base-100  border-b-amber-50 shadow-sm mb-4">
       <div class="card-body">
         <div class="flex justify-between">
           <div>
             <h3 class="font-bold text-lg">${job.companyName}</h3>
             <p class="text-sm text-gray-500">${job.position}</p>
           </div>
-          <button onclick="deleteJob(${job.id})" class="btn btn-sm btn-ghost">🗑</button>
+          <button onclick="deleteJob(${job.id})" class="btn btn-sm btn-ghost border border-slate-500 w-[30px] h-[30px] rounded-full p-4"><i class="fa-regular fa-trash-can text-[17px]"></i></button>
         </div>
 
         <p class="text-sm mt-2">${job.location} • ${job.type} • ${job.salary}</p>
-
+           <div class="status-btn">
+           <button class="btn btn-sm ${statusClass}">${statusText}</button></div>
         <p class="mt-3 text-sm">${job.description}</p>
 
         <div class="mt-4 flex gap-2">

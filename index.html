@@ -5,15 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Job Application Tracker</title>
 
-    <script src="https://cdn.tailwindcss.com"></script>
-
     <link
-      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.14/dist/full.min.css"
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
       rel="stylesheet"
       type="text/css"
     />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
     <link rel="stylesheet" href=".style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
 
   <body class="bg-base-200">
@@ -21,7 +27,7 @@
       <!-- Title -->
       <h1 class="text-3xl font-bold mb-6">Job Application Tracker</h1>
 
-      <section class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+      <section class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-[40px]">
         <div class="card bg-base-100 border">
           <div class="card-body">
             <p class="text-sm text-gray-500">Total</p>
@@ -45,19 +51,19 @@
       </section>
 
       <section>
-        <div class="flex justify-between items-center mb-3">
-          <h2 class="text-xl font-bold">Available Jobs</h2>
+        <div class="flex justify-between items-center">
+          <h2 class="text-xl font-bold mb-5">Available Jobs</h2>
           <p class="text-sm text-gray-500"><span id="tabCount">0</span> jobs</p>
         </div>
 
-        <div class="tabs tabs-lift">
+        <div class="tabs tabs-lift mb-[40px]">
           <!-- ALL -->
           <input
             type="radio"
             name="job_tabs_unique"
-            class="tab"
+            class="tab checked:bg-blue-600 checked:text-white rounded-md w-[100px]"
             aria-label="All"
-            checked
+            checked="checked"
             id="tab-all"
           />
           <div class="tab-content bg-base-100 border p-4">
@@ -67,7 +73,7 @@
           <input
             type="radio"
             name="job_tabs_unique"
-            class="tab"
+            class="tab checked:bg-blue-600 checked:text-white rounded-md w-[100px]"
             aria-label="Interview"
             id="tab-interview"
           />
@@ -78,7 +84,7 @@
           <input
             type="radio"
             name="job_tabs_unique"
-            class="tab"
+            class="tab checked:bg-blue-600 checked:text-white rounded-md w-[100px]"
             aria-label="Rejected"
             id="tab-rejected"
           />
